@@ -5,9 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CycomWeeklyManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Cycom Event Manager - By Merwan Lara" Height="450" Width="800">
     <Grid>
         <Button x:Name="GenerateButton" Content="Générer" HorizontalAlignment="Left" Margin="296,276,0,0" VerticalAlignment="Top" Width="231" Height="54" Click="GenerateButton_Click"/>
-
+        <TextBox Name="EventOrganizerTextBox" HorizontalAlignment="Left" Height="23" Margin="113,38,0,0" TextWrapping="Wrap" Text="Association" VerticalAlignment="Top" Width="120" TextChanged="EventOrganizerTextBox_TextChanged" CharacterCasing="Upper"/>
+        <TextBox Name="EventNameTextBox" HorizontalAlignment="Left" Height="23" Margin="113,66,0,0" TextWrapping="Wrap" Text="Nom de l'event" VerticalAlignment="Top" Width="120" TextChanged="EventNameTextBox_TextChanged"/>
+        <DatePicker Name="EventDatePicker" HorizontalAlignment="Left" Margin="96,94,0,0" VerticalAlignment="Top" SelectedDateChanged="EventDatePicker_SelectedDateChanged"/>
+        <TextBox Name="EventDescription_TextBox" HorizontalAlignment="Left" Height="72" Margin="113,158,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="120" TextChanged="EventDescription_TextBox_TextChanged"/>
+        <RadioButton Name="KBRadioButton" Content="Kremlin-Bicêtre" HorizontalAlignment="Left" Margin="449,38,0,0" VerticalAlignment="Top" GroupName="Place" IsChecked="True"/>
+        <RadioButton Name="VJRadioButton" Content="Villejuif" HorizontalAlignment="Left" Margin="449,58,0,0" VerticalAlignment="Top" GroupName="Place"/>
+        <RadioButton Name="OTRadioButton" Content="Autre" HorizontalAlignment="Left" Margin="449,77,0,0" VerticalAlignment="Top" GroupName="Place" Checked="OtherPlaceRadioButton_Checked" Unchecked="OtherPlaceRadioButton_Unchecked"/>
+        <TextBox Name="EventOtherPlaceNameTextBox" HorizontalAlignment="Left" Height="23" Margin="449,97,0,0" TextWrapping="Wrap" Text="Autre lieu" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <TextBox Name="EventRoomTextBox" HorizontalAlignment="Left" Height="23" Margin="602,52,0,0" TextWrapping="Wrap" Text="Salle" VerticalAlignment="Top" Width="120" TextChanged="EventRoomTextBox_TextChanged"/>
+        <Button Name="CheckRoomsButton" Content="Checker les salles" HorizontalAlignment="Left" Margin="602,83,0,0" VerticalAlignment="Top" Width="120" Click="CheckRoomsButton_Click" Background="#FFC5BA9C"/>
+        <Button Name="PrefillButton" HorizontalAlignment="Left" Margin="217,276,0,0" VerticalAlignment="Top" Width="75" Height="54" Background="#FF95B5D6" Click="PrefillButton_Click">
+            <TextBlock TextAlignment="Center">Pré-remplir<LineBreak/>Weekly</TextBlock>
+        </Button>
+        <Grid HorizontalAlignment="Left" Height="52" Margin="287,40,0,0" VerticalAlignment="Top" Width="97">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">Début:</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">Fin:</TextBlock>
+            <TextBox Name="EventHourStart" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" TextChanged="EventHourStart_TextChanged" />
+            <TextBox Name="EventMinStart" Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" TextChanged="EventMinStart_TextChanged" />
+            <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">h</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">h</TextBlock>
+            <TextBox Name="EventHourEnd" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" TextChanged="EventHourEnd_TextChanged" />
+            <TextBox Name="EventMinEnd" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" TextChanged="EventMinEnd_TextChanged" />
+        </Grid>
+        <Grid Margin="296,145,308,178" Background="#FFC3FFE4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center">RESPONSABLE</TextBlock>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">NOM</TextBlock>
+            <TextBox Name="EventManagerName_TextBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" TextChanged="EventManagerName_TextBox_TextChanged"/>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">TÉL.</TextBlock>
+            <TextBox Name="EventManagerTel_TextBox" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextChanged="EventManagerTel_TextBox_TextChanged"/>
+            <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">ECOLE</TextBlock>
+            <TextBox Name="EventManagerSchool_TextBox" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" TextChanged="EventManagerSchool_TextBox_TextChanged"/>
+        </Grid>
+        <Grid Margin="498,145,106,178" Background="#FF96C3AF">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="0.7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="1.2*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center">TUTEUR</TextBlock>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">NOM</TextBlock>
+            <TextBox Name="EventTutorName_TextBox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" TextChanged="EventManagerName_TextBox_TextChanged"/>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">TÉL.</TextBlock>
+            <TextBox Name="EventTutorTel_TextBox" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" TextChanged="EventManagerTel_TextBox_TextChanged"/>
+            <TextBlock Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">POSTE/<LineBreak/>ECOLE</TextBlock>
+            <TextBox Name="EventTutorSchool_TextBox" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" TextChanged="EventManagerSchool_TextBox_TextChanged"/>
+        </Grid>
     </Grid>
 </Window>
