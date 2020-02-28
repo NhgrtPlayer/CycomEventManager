@@ -16,13 +16,39 @@ namespace CycomWeeklyManager
         public string MinStart { get; set; }
         public string HourEnd { get; set; }
         public string MinEnd { get; set; }
-        public bool Recurrent { get; set; }
         public string Room { get; set; }
+        public string Stuff { get; internal set; }
         public string ManagerName { get; set; }
         public string ManagerTel { get; set; }
         public string ManagerSchool { get; set; }
         public string TutorName { get; internal set; }
         public string TutorTel { get; internal set; }
         public string TutorSchool { get; internal set; }
+        public string StudentsNB { get; internal set; }
+        public string MembersNB { get; internal set; }
+        public string ExternsNB { get; internal set; }
+
+        public Event()
+        {
+            this.Organizer = "";
+            this.Name = "";
+            this.Description = "";
+            this.Date = "";
+            this.HourStart = "";
+            this.MinStart = "";
+            this.HourEnd = "";
+            this.MinEnd = "";
+            this.Room = "";
+            this.Stuff = "";
+            this.ManagerName = "";
+            this.ManagerTel = "";
+            this.ManagerSchool = "";
+            this.TutorName = "";
+            this.TutorTel = "";
+            this.TutorSchool = "";
+            this.StudentsNB = "";
+            this.MembersNB = "";
+            this.ExternsNB = "";
+        }
     }
 }

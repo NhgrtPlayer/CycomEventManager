@@ -80,5 +80,37 @@
             <TextBox Name="EventTutorSchool_TextBox" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" TextChanged="EventManagerSchool_TextBox_TextChanged"/>
         </Grid>
         <Image HorizontalAlignment="Left" Height="48" Margin="66,361,0,0" VerticalAlignment="Top" Width="54" Source="cycom_logo.ico" Stretch="None" IsEnabled="False"/>
+        <StackPanel Orientation="Horizontal" Margin="90,247,532,142">
+            <TextBlock Width="68" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4,0,5">Récurrence</TextBlock>
+            <RadioButton x:Name="RecurrentYes_RadioButton" Width="42" GroupName="recurrence" Content="Oui" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <RadioButton x:Name="RecurrentNo_RadioButton" Width="45" IsChecked="True" GroupName="recurrence" Content="Non" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="90,277,532,114">
+            <TextBlock Width="68" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4,0,3">Assurance</TextBlock>
+            <RadioButton x:Name="AssuranceYes_RadioButton" Width="42" IsChecked="True" GroupName="assurance" Content="Oui" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <RadioButton x:Name="AssuranceNo_RadioButton" Width="47" GroupName="assurance" Content="Non" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="90,305,386,80">
+            <TextBlock Width="52" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4,0,3">Boissons</TextBlock>
+            <RadioButton x:Name="DrinksNone_RadioButton" Width="68" GroupName="drinks" Content="Aucunes" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4" />
+            <RadioButton x:Name="DrinksAlcoholNo_RadioButton" Width="104" IsChecked="True" GroupName="drinks" Content="Non-alcolisées" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4" />
+            <RadioButton x:Name="DrinksAlcoholYes_RadioButton" Width="79" GroupName="drinks" Content="Alcolisées" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,4" />
+        </StackPanel>
+        <WrapPanel Margin="268,115,326,222">
+            <TextBlock Width="190" TextAlignment="Center">Nombre de personnes</TextBlock>
+            <StackPanel Orientation="Horizontal" Width="189">
+                <TextBlock Width="105">Étudiants IONIS</TextBlock>
+                <TextBox x:Name="StudentsNB_TextBox" Width="82" TextChanged="StudentsNB_TextBox_TextChanged" PreviewTextInput="NumberValidationTextBox" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="189">
+                <TextBlock Width="105">Membres</TextBlock>
+                <TextBox x:Name="MembersNB_TextBox" Width="82" TextChanged="MembersNB_TextBox_TextChanged" PreviewTextInput="NumberValidationTextBox" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Width="189">
+                <TextBlock Width="105">Externes (150 Max)</TextBlock>
+                <TextBox x:Name="ExternsNB_TextBox" Width="82" TextChanged="ExternsNB_TextBox_TextChanged" PreviewTextInput="NumberValidationTextBox" />
+            </StackPanel>
+        </WrapPanel>
+        <TextBox x:Name="EventStuff_TextBox" HorizontalAlignment="Left" Height="22" Margin="259,202,0,0" TextWrapping="Wrap" Text="Équipements" VerticalAlignment="Top" Width="220" TextChanged="EventStuff_TextBox_TextChanged"/>
     </Grid>
 </Window>
